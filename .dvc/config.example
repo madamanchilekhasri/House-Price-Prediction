@@ -1,0 +1,5 @@
+# Example only. Configure your own remote storage after running `dvc init`.
+# [core]
+#     remote = myremote
+# ['remote "myremote"']
+#     url = s3://YOUR-BUCKET/house-price-dvc

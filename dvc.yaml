@@ -1,0 +1,13 @@
+stages:
+  train:
+    cmd: python train.py
+    deps:
+      - train.py
+      - src/data.py
+      - src/preprocess.py
+      - data/house_prices.csv
+    outs:
+      - models/house_price_model.joblib
+    metrics:
+      - models/metrics.json:
+          cache: false

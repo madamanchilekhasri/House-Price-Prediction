@@ -1,0 +1,1 @@
+The app creates `house_prices.csv` automatically the first time it runs. The generated data is synthetic. For real use, replace it with a licensed/reliable dataset containing all columns listed in `src/data.py`.

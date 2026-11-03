@@ -1,0 +1,6 @@
+apiVersion: v2
+name: house-price-predictor
+description: Beginner demo deployment for the house price prediction Streamlit app
+type: application
+version: 0.1.0
+appVersion: "1.0.0"

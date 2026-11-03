@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: house-price-predictor
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: house-price-predictor
+  template:
+    metadata:
+      labels:
+        app: house-price-predictor
+    spec:
+      containers:
+        - name: app
+          image: YOUR_DOCKERHUB_USERNAME/house-price-predictor:latest
+          ports:
+            - containerPort: 8501
+          readinessProbe:
+            httpGet:
+              path: /_stcore/health
+              port: 8501
+            initialDelaySeconds: 10
+            periodSeconds: 10
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: house-price-predictor
+spec:
+  selector:
+    app: house-price-predictor
+  ports:
+    - port: 80
+      targetPort: 8501
+  type: ClusterIP
